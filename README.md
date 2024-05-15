@@ -121,7 +121,7 @@ Thank you for considering contributing to our project! To contribute, follow the
 <h2 align = "center"> 🤝 Our Contributors</h2>
 <div align = "center">
 
-![Contributors](https://contrib.rocks/image?repo=MAVRICK-1/e-commerce_website)
+![Contributors](https://contrib.rocks/image?repo=MAVRICK-1/Nest-Ondc)
  
  <h3>Thank you for contributing to our repository</h3>
 
@@ -129,14 +129,13 @@ Thank you for considering contributing to our project! To contribute, follow the
 <br>
 <div align=center>
   <h2>This Project is the part of</h2>
-  <img alt="GSSoC" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png#gh-light-mode-only" width=87%>
-  <img alt="GSSoC" src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only"/>
+  <img alt="SSoC" src="https://media.licdn.com/dms/image/D560BAQGXiRzaEERI4g/company-logo_200_200/0/1711178738517?e=1723680000&v=beta&t=lod17c4giDxkt9JIIQmK65r6B9UqqJPGUmLJyR7evSE">
 </div>
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
-We extend our heartfelt gratitude to the organizers of GSSOC for offering this invaluable platform to exhibit our talents and make meaningful contributions to the open-source community. Your efforts in fostering a collaborative environment for budding developers are commendable, and we are privileged to be a part of such an esteemed event. Thank you for providing us with the opportunity to showcase our skills and contribute to the advancement of open-source technology.
+We extend our heartfelt gratitude to the organizers of SSOC for offering this invaluable platform to exhibit our talents and make meaningful contributions to the open-source community. Your efforts in fostering a collaborative environment for budding developers are commendable, and we are privileged to be a part of such an esteemed event. Thank you for providing us with the opportunity to showcase our skills and contribute to the advancement of open-source technology.
 
 <h2 align="center">Don't forget to give us a ⭐</h2>
