@@ -17,7 +17,7 @@ import paymentImage from '../../assets/images/payment-method.png';
 import appStore from '../../assets/images/app-store.jpg';
 import googlePlay from '../../assets/images/google-play.jpg';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Newsletter from '../../components/newsletter/index';
@@ -240,7 +240,7 @@ const Footer = () => {
                                             <Link to={''}><FacebookOutlinedIcon /></Link>
                                         </li>
                                         <li className='list-inline-item'>
-                                            <Link to={''}><TwitterIcon /></Link>
+                                            <Link to={''}><XIcon /></Link>
                                         </li>
                                         <li className='list-inline-item'>
                                             <Link to={''}><InstagramIcon /></Link>
