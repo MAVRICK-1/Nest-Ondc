@@ -470,14 +470,14 @@ const DetailsPage = (props) => {
 
               <div className="priceSec d-flex align-items-center mb-3">
                 <span className="text-g priceLarge">
-                  Rs {currentProduct.price}
+                  ₹ {currentProduct.price}
                 </span>
                 <div className="ml-3 d-flex flex-column">
                   <span className="text-org">
                     {currentProduct.discount}% Off
                   </span>
                   <span className="text-light oldPrice">
-                    Rs {currentProduct.oldPrice}
+                    ₹ {currentProduct.oldPrice}
                   </span>
                 </div>
               </div>
