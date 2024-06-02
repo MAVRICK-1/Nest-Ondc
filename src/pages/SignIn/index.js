@@ -11,7 +11,6 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  sendPasswordResetEmail,
 } from "firebase/auth";
 import { app } from "../../firebase";
 import Backdrop from "@mui/material/Backdrop";
@@ -42,15 +41,6 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-
-  
-  const checkInputs = (email, password) => {
-    if (email.trim() !== '' && password.trim() !== ''){
-      setIsDisabled(false);
-    }else {
-      setIsDisabled(true);
-    }
-  };
 
   const dispatch = useDispatch()
 
@@ -93,8 +83,11 @@ const SignIn = () => {
       ...prevFormFields,
       [name]: value,
     }));
-    checkInputs(formFields.email, formFields.password,value);
-
+    //checkInputs(formFields.email, formFields.password,value);
+    const isEmailValid = !errors.email;
+    const isPasswordValid = !errors.password;
+    const isDisabled = !isEmailValid && !isPasswordValid; 
+    setIsDisabled(isDisabled);
 
   };
 
@@ -147,16 +140,6 @@ const SignIn = () => {
       });
   };
 
-  const forgotPassword = () => {
-    const email = formFields.email;
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        setSnackbarOpen(true);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
   const handleCloseSnackbar = () => {
     setSnackbarOpen(false);
   };
@@ -270,9 +253,7 @@ const SignIn = () => {
               </div>
 
               <div className="form-group mt-3 mb-4 w-100">
-                <Button className="btn btn-link" onClick={forgotPassword}>
-                  Forgot Password?
-                </Button>
+                <Link to="/forgotPassword">Forgot Password?</Link>              
               </div>
 
               <p className="text-center">
