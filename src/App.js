@@ -20,6 +20,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
+import ForgotPassword from "./pages/ForgotPassword";
 import "./responsive.css";
 
 // import data from './data';
@@ -274,6 +275,9 @@ function App() {
           )}
           {isLogin === null && (
             <Route exact={true} path="signUp" element={<SignUp />} />
+          )}
+          {isLogin === null && (
+            <Route exact={true} path="forgotPassword" element={<ForgotPassword />} />
           )}
 
           <Route
