@@ -138,19 +138,6 @@ const Footer = () => {
                                         </ul>
                                     </div>
 
-                                    <div className='col'>
-                                        <h3>Company</h3>
-                                        <ul className="footer-list mb-sm-5 mb-md-0">
-                                            <li><Link to="#">Account</Link></li>
-                                            <li><Link to="#">Delivery Information</Link></li>
-                                            <li><Link to="#">Privacy Policy</Link></li>
-                                            <li><Link to="#">Terms &amp; Conditions</Link></li>
-                                            <li><Link to="#">Contact Us</Link></li>
-                                            <li><Link to="#">Support Center</Link></li>
-                                            <li><Link to="#">Careers</Link></li>
-                                        </ul>
-                                    </div>
-
 
                                     <div className='col'>
                                         <h3>Corporate</h3>
