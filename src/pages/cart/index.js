@@ -24,6 +24,8 @@ import {
   getDocs,
   onSnapshot,
 } from "firebase/firestore";
+import { Description } from "@mui/icons-material";
+
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState(null);
@@ -31,6 +33,7 @@ const Cart = () => {
   const context = useContext(MyContext);
   const navigate = useNavigate();
   const [uid, setUid] = useState(localStorage.getItem("uid"));
+
   useEffect(() => {
     try {
       if (context.isLogin === "true") {
@@ -100,10 +103,36 @@ const Cart = () => {
     setCartItems(items);
   };
 
+  const handleSubmit = (e) => {
+    var payoptions = {
+      key: "razor_key",
+      key_secret: "razor_secret_key",
+      amount: totalPrice * 100,
+      currency: "INR",
+      name: "ONDC_PROJECT",
+      description: "For open source project",
+      handler: function (response) {
+        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+      },
+      prefill: {
+        id: "",
+        email: "",
+        contact: ""
+      },
+      notes: {
+        address: "Razorpay Corporate office"
+      },
+      theme: {
+        color: "#3399cc"
+      }
+    };
+    var pay = new window.Razorpay(payoptions);
+    pay.open();
+  };
+
   return (
     <>
       {cartItems.length > 0 ? (
-        // Render cart section if cartItems array is not empty
         <>
           {context.windowWidth > 992 && (
             <div className="breadcrumbWrapper mb-4">
@@ -120,8 +149,8 @@ const Cart = () => {
           )}
           <section className="cartSection mb-5">
             <div className="container-fluid">
-              <div className={context.windowWidth>770 && "row"} >
-                <div className={`${context.windowWidth<770? "col-md-full":"col-md-7"}`}>
+              <div className={context.windowWidth > 770 && "row"}>
+                <div className={`${context.windowWidth < 770 ? "col-md-full" : "col-md-7"}`}>
                   <div className="d-flex align-items-center w-100">
                     <div className="left">
                       <h1 className="hd mb-0">Your Cart</h1>
@@ -133,7 +162,7 @@ const Cart = () => {
                     </div>
 
                     <span
-                      className="ml-auto clearCart d-flex align-items-center cursor "
+                      className="ml-auto clearCart d-flex align-items-center cursor"
                       onClick={() => deleteAllCartItems(uid)}
                     >
                       <DeleteOutlineOutlinedIcon /> Clear Cart
@@ -157,7 +186,7 @@ const Cart = () => {
                           {cartItems.length !== 0 &&
                             cartItems.map((item, index) => {
                               return (
-                                <tr>
+                                <tr key={item.id}>
                                   <td width={"50%"}>
                                     <div className="d-flex align-items-center">
                                       <div className="img">
@@ -168,6 +197,7 @@ const Cart = () => {
                                               "?im=Resize=(100,100)"
                                             }
                                             className="w-100"
+                                            alt={item.productName}
                                           />
                                         </Link>
                                       </div>
@@ -191,7 +221,7 @@ const Cart = () => {
 
                                   <td width="20%">
                                     <span>
-                                      Rs:{" "}
+                                      ₹{" "}
                                       {parseInt(item.price.split(",").join(""))}
                                     </span>
                                   </td>
@@ -205,18 +235,11 @@ const Cart = () => {
                                       updateInfo={updateCart}
                                       name={"carts"}
                                     />
-                                    {/* <QuantityBox
-                                      item={item}
-                                      cartItems={cartItems}
-                                      index={index}
-                                      quantity={item?.quantity}
-                                      updateCart={updateCart}
-                                    /> */}
                                   </td>
 
                                   <td>
                                     <span className="text-g">
-                                      Rs.{" "}
+                                      ₹{" "}
                                       {parseInt(
                                         item.price.split(",").join("")
                                       ) * parseInt(item.quantity)}
@@ -249,13 +272,11 @@ const Cart = () => {
                         <KeyboardBackspaceIcon /> Continue Shopping
                       </Button>
                     </Link>
-                    {/* <Button className='btn-g ml-auto' onClick={updateCartData}>
-                    <RefreshIcon /> Update Cart</Button> */}
                   </div>
                 </div>
 
                 <div className="col-md-4 cartRightBox">
-                  <div className="card p-4 ">
+                  <div className="card p-4">
                     <div className="d-flex align-items-center mb-4">
                       <h5 className="mb-0 text-light">Subtotal</h5>
                       <h3 className="ml-auto mb-0 font-weight-bold">
@@ -303,7 +324,7 @@ const Cart = () => {
                     </div>
 
                     <br />
-                    <Button className="btn-g btn-lg">
+                    <Button onClick={handleSubmit} className="btn-g btn-lg">
                       Proceed To CheckOut
                     </Button>
                   </div>

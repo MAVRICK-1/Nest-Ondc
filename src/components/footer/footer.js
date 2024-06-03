@@ -54,7 +54,7 @@ const Footer = () => {
                                     <span><img src={Icon1} /></span>
                                     <div className='info'>
                                         <h4>Best prices & offers</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders ₹199 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ const Footer = () => {
                                     <span><img src={Icon2} /></span>
                                     <div className='info'>
                                         <h4>Free delivery</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders ₹199 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@ const Footer = () => {
                                     <span><img src={Icon3} /></span>
                                     <div className='info'>
                                         <h4>Great daily deal</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders ₹199 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@ const Footer = () => {
                                     <span><img src={Icon4} /></span>
                                     <div className='info'>
                                         <h4>Wide assortment</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders ₹199 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ const Footer = () => {
                                     <span><img src={Icon5} /></span>
                                     <div className='info'>
                                         <h4>Easy returns</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders ₹199 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -129,19 +129,6 @@ const Footer = () => {
                                         <h3>Company</h3>
                                         <ul className="footer-list mb-sm-5 mb-md-0">
                                             <li><Link to="#">About Us</Link></li>
-                                            <li><Link to="#">Delivery Information</Link></li>
-                                            <li><Link to="#">Privacy Policy</Link></li>
-                                            <li><Link to="#">Terms &amp; Conditions</Link></li>
-                                            <li><Link to="#">Contact Us</Link></li>
-                                            <li><Link to="#">Support Center</Link></li>
-                                            <li><Link to="#">Careers</Link></li>
-                                        </ul>
-                                    </div>
-
-                                    <div className='col'>
-                                        <h3>Company</h3>
-                                        <ul className="footer-list mb-sm-5 mb-md-0">
-                                            <li><Link to="#">Account</Link></li>
                                             <li><Link to="#">Delivery Information</Link></li>
                                             <li><Link to="#">Privacy Policy</Link></li>
                                             <li><Link to="#">Terms &amp; Conditions</Link></li>
