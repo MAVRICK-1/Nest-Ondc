@@ -67,7 +67,7 @@ const Nav = (props) => {
                                         navData.map((item, index) => {
                                             return (
                                                 <li className='list-inline-item' key={index}>
-                                                    <Button onClick={()=>openDropdownFun(index)}><a href={`${windowWidth>992 ? `#/cat/${item.cat_name.toLowerCase()}` : '#'}`}
+                                                    <Button onClick={()=>openDropdownFun(index)}><a href={`#/cat/${item.cat_name.toLowerCase()}`}
                                                         onClick={() => sessionStorage.setItem('cat', item.cat_name.toLowerCase())}
                                                     >{item.cat_name}  <KeyboardArrowDownIcon  className={`${openDropdownMenu===true && openDropdownMenuIndex===index && 'rotateIcon'}`}/></a></Button>
                                                     {
