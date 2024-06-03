@@ -191,7 +191,7 @@ const Cart = () => {
 
                                   <td width="20%">
                                     <span>
-                                      Rs:{" "}
+                                      ₹{" "}
                                       {parseInt(item.price.split(",").join(""))}
                                     </span>
                                   </td>
@@ -216,7 +216,7 @@ const Cart = () => {
 
                                   <td>
                                     <span className="text-g">
-                                      Rs.{" "}
+                                      ₹{" "}
                                       {parseInt(
                                         item.price.split(",").join("")
                                       ) * parseInt(item.quantity)}

@@ -191,10 +191,10 @@ const Product = (props) => {
             <div className="d-flex align-items-center mt-3">
               <div className="d-flex align-items-center w-100">
                 <span className="price text-g font-weight-bold">
-                  Rs {productData.price}
+                  ₹ {productData.price}
                 </span>{" "}
                 <span className="oldPrice ml-auto">
-                  Rs {productData.oldPrice}
+                  ₹ {productData.oldPrice}
                 </span>
               </div>
             </div>
