@@ -1,46 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#FFF" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" crossorigin="use-credentials" />
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+	<head>
+		<meta charset="utf-8" />
+		<link
+			rel="icon"
+			href="%PUBLIC_URL%/favicon.ico"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge"
+		/>
+		<meta
+			name="theme-color"
+			content="#FFF"
+		/>
+		<meta
+			name="description"
+			content="Our ONDC site integrated with OpenStreetMap aims to provide a seamless digital commerce experience for businesses and consumers across Bharat."
+		/>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Nest ONDC</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+		<!-- Open Graph Metadata -->
+		<meta
+			property="og:title"
+			content="ONDC Integrated with OpenStreetMap - Seamless Digital Commerce Across Bharat"
+		/>
+		<meta
+			property="og:description"
+			content="Experience seamless digital commerce with our ONDC site, leveraging OpenStreetMap for a connected and integrated marketplace across Bharat."
+		/>
+		<meta
+			property="og:image"
+			content="%PUBLIC_URL%/nest-ondc-og.png"
+		/>
+		<meta
+			property="og:url"
+			content="https://nest-ondc.vercel.app/"
+		/>
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:site_name"
+			content="Nest ONDC"
+		/>
+		<meta
+			property="og:locale"
+			content="en_IN"
+		/>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+		<!-- Twitter Card Metadata -->
+		<meta
+			name="twitter:card"
+			content="summary_large_image"
+		/>
+		<meta
+			name="twitter:title"
+			content="ONDC Integrated with OpenStreetMap - Seamless Digital Commerce Across Bharat"
+		/>
+		<meta
+			name="twitter:description"
+			content="Experience seamless digital commerce with our ONDC site, leveraging OpenStreetMap for a connected and integrated marketplace across Bharat."
+		/>
+		<meta
+			name="twitter:image"
+			content="%PUBLIC_URL%/nest-ondc-og.png"
+		/>
+		<meta
+			name="twitter:site"
+			content="@YourTwitterHandle"
+		/>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+		<!-- Link to Leaflet CSS for map rendering -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet/dist/leaflet.css"
+		/>
+
+		<!-- External CSS for Font Awesome Icons -->
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+
+		<!-- Link to the web app manifest -->
+		<link
+			rel="manifest"
+			href="%PUBLIC_URL%/manifest.json"
+			crossorigin="use-credentials"
+		/>
+
+		<!-- Razorpay Checkout script -->
+		<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+		<title>Nest ONDC</title>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+	</body>
 </html>
