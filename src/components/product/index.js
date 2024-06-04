@@ -174,7 +174,8 @@ const Product = (props) => {
           <div className="info">
             <span className="d-block catName">{productData.brand}</span>
             <h4 className="title">
-              <Link>{productData.productName.substr(0, 50) + "..."}</Link>
+              {/* <Link>{productData.productName.substr(0, 50) + "..."}</Link> */}
+              <Link>{productData.productName.substr(0, 30) + "..."}</Link>
             </h4>
             <Rating
               name="half-rating-read"
