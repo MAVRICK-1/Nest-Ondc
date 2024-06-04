@@ -1,4 +1,4 @@
-.productThumb{width: 100%; height: auto;  border: 1px solid rgba(0,0,0,0.1); overflow: hidden; border-radius: 15px; padding:25px; transition: all 0.3s ease-in-out; position: relative;}
+.productThumb{width: 100%; height: auto;  border: 1px solid rgba(0,0,0,0.1); overflow: hidden; border-radius: 15px; padding:25px; transition: all 0.3s ease-in-out; position: relative;   box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.04);}
 
 .productThumb .badge{position: absolute; top: 0px; left: 0px; display: inline-block;
 background: red; z-index: 10; color: #fff; padding: 10px 25px; font-size: 16px;
