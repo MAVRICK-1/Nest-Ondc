@@ -67,7 +67,7 @@ const Nav = (props) => {
                                         navData.map((item, index) => {
                                             return (
                                                 <li className='list-inline-item' key={index}>
-                                                    <Button onClick={()=>openDropdownFun(index)}><a href={`${windowWidth>992 ? `/cat/${item.cat_name.toLowerCase()}` : '#'}`}
+                                                    <Button onClick={()=>openDropdownFun(index)}><a href={`#/cat/${item.cat_name.toLowerCase()}`}
                                                         onClick={() => sessionStorage.setItem('cat', item.cat_name.toLowerCase())}
                                                     >{item.cat_name}  <KeyboardArrowDownIcon  className={`${openDropdownMenu===true && openDropdownMenuIndex===index && 'rotateIcon'}`}/></a></Button>
                                                     {
@@ -80,7 +80,7 @@ const Nav = (props) => {
                                                                         return (
                                                                             <li key={index_}>
                                                                                 <Button onClick={props.closeNav}>
-                                                                                    <a href={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g, '-').toLowerCase()}`}
+                                                                                    <a href={`#/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(/\s/g, '-').toLowerCase()}`}
                                                                                         onClick={() => sessionStorage.setItem('cat', item.cat_name.toLowerCase())}>
                                                                                         {
                                                                                             item_.cat_name
@@ -116,7 +116,8 @@ const Nav = (props) => {
                                                     props.data.map((item, index) => {
                                                         return (
                                                             <div className='col'>
-                                                                <a href={`/cat/${item.cat_name.toLowerCase()}`}> <h4 className='text-g text-capitalize'>{item.cat_name}</h4></a>
+                                                
+                                                                <a href={`#/cat/${item.cat_name.toLowerCase()}`}> <h4 className='text-g text-capitalize'>{item.cat_name}</h4></a>
                                                                 {
                                                                     item.items.length !== 0 &&
                                                                     <ul className='mt-4 mb-0'>
