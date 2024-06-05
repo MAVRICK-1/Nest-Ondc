@@ -16,7 +16,7 @@ module.exports = {
         },
         babelOptions: {
             presets: ["@babel/preset-react"]
-         },
+        },
     },
     plugins: ['react'],
     env: {

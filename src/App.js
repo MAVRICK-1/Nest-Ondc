@@ -39,7 +39,7 @@ function App() {
 
   const [isLoading, setIsloading] = useState(true);
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

@@ -6,27 +6,27 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import Slider from "react-slick";
 import { useRef } from "react";
 import { useState } from "react";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+// import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useEffect } from "react";
 import { Button } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import {
-  getDatabase,
-  ref,
-  onValue,
-  set,
-  push,
-  child,
-  remove,
-} from "firebase/database";
+// import {
+//   getDatabase,
+//   ref,
+//   onValue,
+//   set,
+//   push,
+//   child,
+//   remove,
+// } from "firebase/database";
 import Product from "../../components/product";
 import axios from "axios";
 import { MyContext } from "../../App";
 import MapComponent from "../../components/map/ITEMmap";
-import { Email } from "@mui/icons-material";
+// import { Email } from "@mui/icons-material";
 import useLoggedInUserEmail from "../../Hooks/useLoggedInUserEmail";
 import { db } from "../../firebase";
 import {
@@ -38,13 +38,13 @@ import {
 } from "firebase/firestore";
 
 const DetailsPage = (props) => {
-  const [zoomInage, setZoomImage] = useState(
-    "https://www.jiomart.com/images/product/original/490000363/maggi-2-minute-masala-noodles-70-g-product-images-o490000363-p490000363-0-202305292130.jpg"
-  );
+  // const [zoomInage, setZoomImage] = useState(
+  //   "https://www.jiomart.com/images/product/original/490000363/maggi-2-minute-masala-noodles-70-g-product-images-o490000363-p490000363-0-202305292130.jpg"
+  // );
 
   const [bigImageSize, setBigImageSize] = useState([1500, 1500]);
   const [smlImageSize, setSmlImageSize] = useState([150, 150]);
-  const [loggedInUserEmail, setLoggedInUseEmail] = useLoggedInUserEmail();
+  // const [loggedInUserEmail, setLoggedInUseEmail] = useLoggedInUserEmail();
 
   const [activeSize, setActiveSize] = useState(0);
 
@@ -350,17 +350,14 @@ const DetailsPage = (props) => {
 
   function getDiscountPercentage(oldPrice, price) {
     if (!oldPrice || !price) {
-      return 0; // Return a default value if oldPrice or price is undefined or null
+      return 0;
     }
   
-    // Parse the oldPrice and price to numbers
     const oldPriceNumber = parseFloat(oldPrice.replace(/,/g, ''));
     const priceNumber = parseFloat(price.replace(/,/g, ''));
   
-    // Calculate the discount percentage
     const discount = ((oldPriceNumber - priceNumber) / oldPriceNumber) * 100;
   
-    // Return the discount percentage rounded to the nearest whole number
     return Math.round(discount);
   }
 

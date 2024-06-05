@@ -10,7 +10,7 @@ import Banner4 from '../../assets/images/banner4.jpg';
 
 import Slider from "react-slick";
 import TopProducts from './TopProducts';
-import axios from 'axios';
+// import axios from 'axios';
 import { MyContext } from '../../App';
 
 const Home = (props) => {

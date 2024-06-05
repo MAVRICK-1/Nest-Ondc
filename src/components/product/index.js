@@ -7,15 +7,15 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import {
-  getDatabase,
-  ref,
-  onValue,
-  set,
-  push,
-  child,
-  remove,
-} from "firebase/database";
+// import {
+//   getDatabase,
+//   ref,
+//   onValue,
+//   set,
+//   push,
+//   child,
+//   remove,
+// } from "firebase/database";
 
 import { MyContext } from "../../App";
 import { db } from "../../firebase";

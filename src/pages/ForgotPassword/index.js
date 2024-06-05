@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../SignIn/style.css";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {
   Button,
@@ -21,7 +21,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 const auth = getAuth(app);
 
 const forgotPassword = () => {
-  const naviagtor = useNavigate();
   const navigate = useNavigate(); // Initialize useHistory
   const [openDialog, setOpenDialog] = useState(false); // State for controlling dialog visibility
 
@@ -73,10 +72,10 @@ const forgotPassword = () => {
   const forgotPassword = async () => {
     const email = formFields.email;
     try {
-       await sendPasswordResetEmail(auth, email)
+        await sendPasswordResetEmail(auth, email)
         setSnackbarMessage('Reset email sent');
         setSnackbarOpen(true);
-     } catch (error) {
+    } catch (error) {
         setError(error.message);
       }
   };
