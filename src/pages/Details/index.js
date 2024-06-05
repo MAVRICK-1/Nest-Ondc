@@ -348,6 +348,23 @@ const DetailsPage = (props) => {
     }
   };
 
+  function getDiscountPercentage(oldPrice, price) {
+    if (!oldPrice || !price) {
+      return 0; // Return a default value if oldPrice or price is undefined or null
+    }
+  
+    // Parse the oldPrice and price to numbers
+    const oldPriceNumber = parseFloat(oldPrice.replace(/,/g, ''));
+    const priceNumber = parseFloat(price.replace(/,/g, ''));
+  
+    // Calculate the discount percentage
+    const discount = ((oldPriceNumber - priceNumber) / oldPriceNumber) * 100;
+  
+    // Return the discount percentage rounded to the nearest whole number
+    return Math.round(discount);
+  }
+
+
   return (
     <>
       {context.windowWidth < 992 && (
@@ -474,7 +491,7 @@ const DetailsPage = (props) => {
                 </span>
                 <div className="ml-3 d-flex flex-column">
                   <span className="text-org">
-                    {currentProduct.discount}% Off
+                    {getDiscountPercentage(currentProduct.oldPrice, currentProduct.price)}% Off
                   </span>
                   <span className="text-light oldPrice">
                     ₹ {currentProduct.oldPrice}
