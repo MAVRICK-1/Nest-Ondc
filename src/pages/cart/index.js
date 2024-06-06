@@ -281,7 +281,7 @@ const Cart = () => {
                       <h5 className="mb-0 text-light">Subtotal</h5>
                       <h3 className="ml-auto mb-0 font-weight-bold">
                         <span className="text-g">
-                          {cartItems.length !== 0 &&
+                          ₹{cartItems.length !== 0 &&
                             cartItems
                               .map(
                                 (item) =>
@@ -311,7 +311,7 @@ const Cart = () => {
                       <h5 className="mb-0 text-light">Total</h5>
                       <h3 className="ml-auto mb-0 font-weight-bold">
                         <span className="text-g">
-                          {cartItems.length !== 0 &&
+                          ₹{cartItems.length !== 0 &&
                             cartItems
                               .map(
                                 (item) =>
