@@ -15,7 +15,7 @@ import {
   DialogActions,
   Typography,
 } from "@mui/material";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { app } from "../../firebase";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -30,6 +30,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
 
   const [formFields, setFormFields] = useState({
@@ -55,9 +56,20 @@ const SignUp = () => {
       setIsDisabled(true);
     }
   };
-  
+  const emailVerification=(currUser)=>{
+    sendEmailVerification(currUser)
+        .then(()=>{
+          setShowLoader(false);
+          setFormFields({
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
+          setOpenDialog(true);
+        });
+  };
 
-  const signUp = () => {
+  const signUp = async () => {
     setShowLoader(true);
     // Check for password strength
     if (formFields.password.length < 6) {
@@ -69,15 +81,10 @@ const SignUp = () => {
       return;
     }
     createUserWithEmailAndPassword(auth, formFields.email, formFields.password)
-      .then((userCredential) => {
+      .then( (userCredential) => {
         //console.log("User signed up successfully:", userCredential.user);
-        setShowLoader(false);
-        setFormFields({
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-        setOpenDialog(true);
+        setCurrentUser(userCredential.user);
+        emailVerification(auth.currentUser);
       })
       .catch((error) => {
         setShowLoader(false);
@@ -169,6 +176,27 @@ const SignUp = () => {
     setOpenDialog(false); // Close the dialog
     navigate("/signIn"); // Redirect to sign-in page
   };
+  const handleResendEmail = () => {
+    if (currentUser) {
+      sendEmailVerification(currentUser)
+        .then(() => {
+          setSnackbarMessage('Verification email resent!');
+          setSnackbarOpen(true);
+        })
+        .catch((error) => {
+          if (error.code === 'auth/too-many-requests') {
+            setSnackbarMessage('Too many requests. Please try again later.');
+            setSnackbarOpen(true);
+          } else {
+            setSnackbarMessage('Error resending verification email. Please try again.');
+            setSnackbarOpen(true);
+          }
+          console.error('Error resending verification email:', error);
+        });
+    } else {
+      console.log('No user is available.');
+    }
+  };
 
   return (
     <>
@@ -183,10 +211,13 @@ const SignUp = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Your account has been created successfully. You can now sign in.
+            A verification mail has been sent to you.Kindly verify your email before signing in.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
+        <Button  onClick={handleResendEmail} color="primary" autoFocus>
+            Resend Mail
+          </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
             Sign In
           </Button>
