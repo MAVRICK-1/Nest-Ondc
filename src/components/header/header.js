@@ -254,7 +254,7 @@ const Header = (props) => {
                             {" "}
                             <img src={IconCompare} />
                             <span className="badge bg-success rounded-circle">
-                              3
+                              0
                             </span>
                             Compare
                           </Link>
