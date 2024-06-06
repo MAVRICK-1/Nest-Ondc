@@ -128,8 +128,7 @@ const Footer = () => {
                 <br />
 
                 <p>
-                  <LocationOnOutlinedIcon /> <strong>Address</strong>: 5171 W
-                  Campbell Ave undefined Kent, Utah 53127 United States
+                  <LocationOnOutlinedIcon /> <strong>Address</strong>: Kopidanga Chinsurah Hooghly West Bengal, India.
                 </p>
                 <p>
                   <HeadphonesOutlinedIcon /> <strong>Call Us:</strong> (+91) -
