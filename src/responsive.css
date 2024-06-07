@@ -3,7 +3,7 @@
   .home_slider_Main .item .info h2{font-size: 8vw !important;}
   .home_slider_Main .item .info p{font-size: 6vw !important;}
   .hd{font-size: 28px !important;}
-  .home_slider_Main .item img{height: 45vh !important; object-fit: cover !important;}
+  .home_slider_Main .item img{height: 68vh !important; }
   .rightContent .topStrip{flex-direction: column;}
   .rightContent .topStrip p{width: 100%; margin-bottom: 10px !important;}
   .rightContent .topStrip div.ml-auto{width: 100%;}
@@ -18,13 +18,15 @@
   .loginWrapper{padding: 60px 20px !important;}
   .loginWrapper .card{width:100% !important;}
   
- 
+  .newsLetterBanner{width: 100%; max-width:500px; height: 68px; }
+  .newsLetterBanner input{  font-size: 20px; padding-right: 200px;}
+ .newsLetterBanner  button{padding: 10px 40px !important; border-radius: 50px !important; color: #fff !important; position: absolute; top: 0px; right: 0px; height: 68px !important; font-size: 19px !important; text-transform: capitalize !important; font-weight: 400 !important;}
+  .newsLetterBanner svg{position: absolute; top: 20px;left: 35px;z-index: 10;font-size: 30px !important;}
 }
 
 @media only screen and (min-width:320px) and (max-width:400px){
   .homeProducts .productRow .item{width: 100% !important;}
   .productThumb .imgWrapper .wrapper{height: auto !important;}
-
   .progressBarBox {flex-direction: column;}
   .progressBarBox span.mr-3{display: block !important; width: 100%;}
   .progress{width: 100% !important;}
@@ -34,12 +36,20 @@
   .productSize  ul{padding-left: 0px !important; margin-top: 10px !important; display: block; white-space: nowrap; overflow: scroll; overflow-y: hidden; width: 100% !important;}
   .productSize  ul::-webkit-scrollbar{display: none !important;}
   .productSize  ul li{vertical-align: top; width: max-content; display: inline-block !important;}
-
+  .newsLetterBanner{width: 100%; max-width:400px; height: 66px; }
+  .newsLetterBanner input{width: 100%; height: 100%; background: #fff; border-radius:60px ; border: 0px; outline: none !important; padding-left: 80px; font-size: 19px; padding-right: 160px;}
+ .newsLetterBanner  button{padding: 8px 20px !important; border-radius: 50px !important; color: #fff !important; position: absolute; top: 0px; right: 0px; height: 66px !important; font-size: 19px !important; text-transform: capitalize !important; font-weight: 400 !important;}
+  .newsLetterBanner svg{position: absolute; top: 18px;left: 35px;z-index: 10;font-size: 30px !important;transform: rotate(-21deg); opacity: 0.5;}
 }
 
 @media only screen and (min-width:400px) and (max-width:550px){
   .homeProducts .productRow .item{width: 50% !important;}
+  .home_slider_Main .item img{height: 63vh !important; object-fit: cover !important;}
   .productThumb .imgWrapper .wrapper{height: auto !important;}
+  .newsLetterBanner{width: 100%; max-width:400px; height: 66px; }
+  .newsLetterBanner input{width: 100%; height: 100%; background: #fff; border-radius:60px ; border: 0px; outline: none !important; padding-left: 80px; font-size: 19px; padding-right: 160px;}
+ .newsLetterBanner  button{padding: 8px 20px !important; border-radius: 50px !important; color: #fff !important; position: absolute; top: 0px; right: 0px; height: 66px !important; font-size: 20px !important; text-transform: capitalize !important; font-weight: 400 !important;}
+  .newsLetterBanner svg{position: absolute; top: 18px;left: 35px;z-index: 10;font-size: 30px !important;transform: rotate(-21deg); opacity: 0.5;}
 }
 
 @media only screen and (min-width:550px) and (max-width:767px){
@@ -49,7 +59,7 @@
 
 @media only screen and (min-width:575px) and (max-width:767px){
   nav,.dropdownMenuAcc{width: 50% !important;}
-
+  .home_slider_Main .item img{height: 78vh !important; object-fit: cover !important;}
   .home_slider_Main .item .info h2{font-size: 8vw !important;}
   .home_slider_Main .item .info p{font-size: 6vw !important;}
 
@@ -71,7 +81,7 @@
 
 @media only screen and (min-width:767px) and (max-width:992px){
   nav,.dropdownMenuAcc{width: 30% !important;}
-
+  .home_slider_Main .item img{height: 90vh !important; object-fit: cover !important;}
   .home_slider_Main .item .info h2{font-size: 7vw !important;}
   .home_slider_Main .item .info p{font-size: 5vw !important;}
 }
