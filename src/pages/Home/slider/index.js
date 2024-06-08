@@ -4,14 +4,14 @@ import './index.css';
 
 import Slide1 from '../../../assets/images/slider-1.png';
 import Slide2 from '../../../assets/images/slider-2.png';
-// import Button from '@mui/material/Button';
 
 import Newsletter from '../../../components/newsletter';
-
 import { MyContext } from '../../../App';
+import Button from '@mui/material/Button';
+
+
 
 const HomeSlider = () => {
-
     const context = useContext(MyContext);
 
     var settings = {
@@ -21,11 +21,9 @@ const HomeSlider = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        arrows: context.windowWidth>992 ? true : false,
-        autoplay:true
+        arrows: context.windowWidth > 992 ? true : false,
+        autoplay: true
     };
-
-
 
     return (
         <section className='homeSlider'>
@@ -39,6 +37,7 @@ const HomeSlider = () => {
                                 grocery deals
                             </h2>
                             <p>Sign up for the daily newsletter</p>
+                            <Newsletter /> 
                         </div>
                     </div>
                     <div className="item">
@@ -49,18 +48,13 @@ const HomeSlider = () => {
                                 Big discount
                             </h2>
                             <p>Sign up for the daily newsletter</p>
+                            <Newsletter /> 
                         </div>
                     </div>
                 </Slider>
-
-                {
-                    context.windowWidth>992 && <Newsletter/>
-                }
-                
-
             </div>
         </section>
-    )
+    );
 }
 
 export default HomeSlider;
