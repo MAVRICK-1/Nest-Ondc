@@ -11,6 +11,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  sendEmailVerification
 } from "firebase/auth";
 import { app } from "../../firebase";
 import Backdrop from "@mui/material/Backdrop";
@@ -20,6 +21,7 @@ import GoogleImg from "../../assets/images/google.png";
 import useLoggedInUserEmail from "../../Hooks/useLoggedInUserEmail";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../Redux/auth-slice";
+
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
@@ -36,12 +38,12 @@ const SignIn = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [loggedInUserEmail, setLoggedInUseEmail] = useLoggedInUserEmail(); //get_email hook
   const [isDisabled, setIsDisabled] = useState(true);
-
+  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [inputErrors, setInputErrors] = useState({
     email: "",
     password: "",
   });
-
+  const [currentUser, setCurrentUser] = useState(null);
   const dispatch = useDispatch()
 
 
@@ -95,22 +97,30 @@ const SignIn = () => {
     setShowLoader(true);
     signInWithEmailAndPassword(auth, formFields.email, formFields.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        setShowLoader(false);
-        setFormFields({
-          email: "",
-          password: "",
-        });
-        localStorage.setItem("isLogin", true);
-        const udata = replaceSpecialCharacters(user.email);
-        localStorage.setItem("user", udata);
-        context.signIn();
-        dispatch(logIn({email:user.email}))
-        setLoggedInUseEmail(user.email);
-        localStorage.setItem("uid", userCredential.user.uid);
-        localStorage.setItem("userImage","")
-        //console.log(loggedInUserEmail);
-        history("/");
+        const user = userCredential.user; 
+        setCurrentUser(user);
+        if(user.emailVerified){       
+          setShowLoader(false);
+          setFormFields({
+            email: "",
+            password: "",
+          });
+          localStorage.setItem("isLogin", true);
+          const udata = replaceSpecialCharacters(user.email);
+          localStorage.setItem("user", udata);
+          context.signIn();
+          dispatch(logIn({email:user.email}))
+          setLoggedInUseEmail(user.email);
+          localStorage.setItem("uid", userCredential.user.uid);
+          localStorage.setItem("userImage","")
+          //console.log(loggedInUserEmail);
+          history("/");
+        }
+        else{
+          setShowLoader(false);
+          setSnackbarMessage('Email verification not done');
+          setSnackbarOpen(true);
+        }
       })
       .catch((error) => {
         setShowLoader(false);
@@ -142,6 +152,27 @@ const SignIn = () => {
 
   const handleCloseSnackbar = () => {
     setSnackbarOpen(false);
+  };
+  const handleResendEmail = () => {
+    if (currentUser) {
+      sendEmailVerification(currentUser)
+        .then(() => {
+          setSnackbarMessage('Verification email resent!');
+          setSnackbarOpen(true);
+        })
+        .catch((error) => {
+          if (error.code === 'auth/too-many-requests') {
+            setSnackbarMessage('Too many requests. Please try again later.');
+            setSnackbarOpen(true);
+          } else {
+            setSnackbarMessage('Error resending verification email. Please try again.');
+            setSnackbarOpen(true);
+          }
+          console.error('Error resending verification email:', error);
+        });
+    } else {
+      console.log('No user is available.');
+    }
   };
 
   return (
@@ -252,8 +283,9 @@ const SignIn = () => {
                 </Button>
               </div>
 
-              <div className="form-group mt-3 mb-4 w-100">
-                <Link to="/forgotPassword">Forgot Password?</Link>              
+              <div className="form-group mt-3 mb-4 w-100 d-flex justify-content-between">
+                <Link to="/forgotPassword">Forgot Password?</Link>  
+                <Link onClick={handleResendEmail}>Verify Email?</Link>             
               </div>
 
               <p className="text-center">
@@ -270,7 +302,7 @@ const SignIn = () => {
         open={snackbarOpen}
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
-        message="Password reset email sent!"
+        message={snackbarMessage}
       />
     </>
   );
