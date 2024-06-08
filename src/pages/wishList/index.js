@@ -262,7 +262,7 @@ const WishList = () => {
                       <h5 className="mb-0 text-light">Subtotal</h5>
                       <h3 className="ml-auto mb-0 font-weight-bold">
                         <span className="text-g">
-                          {wishlistItems.length !== 0 &&
+                          ₹{wishlistItems.length !== 0 &&
                             wishlistItems
                               .map(
                                 (item) =>
@@ -292,7 +292,7 @@ const WishList = () => {
                       <h5 className="mb-0 text-light">Total</h5>
                       <h3 className="ml-auto mb-0 font-weight-bold">
                         <span className="text-g">
-                          {wishlistItems.length !== 0 &&
+                          ₹{wishlistItems.length !== 0 &&
                             wishlistItems
                               .map(
                                 (item) =>
