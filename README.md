@@ -73,11 +73,11 @@ Our project is an ONDC (Open Network for Digital Commerce) site integrated with 
 ## Installation
 1. **Clone the repository:** 
     ```bash
-    git clone https://github.com/MAVRICK-1/e-commerce_website.git
+    git clone https://github.com/MAVRICK-1/Nest-Ondc.git
     ```
 2. **Navigate to the project directory:** 
     ```bash
-    cd e-commerce_website
+    cd Nest-Ondc
     ```
 3. **Install dependencies:** 
     ```bash
