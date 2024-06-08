@@ -4,6 +4,7 @@ import './index.css';
 
 import Slide1 from '../../../assets/images/slider-1.png';
 import Slide2 from '../../../assets/images/slider-2.png';
+
 import Newsletter from '../../../components/newsletter';
 import { MyContext } from '../../../App';
 import Button from '@mui/material/Button';
