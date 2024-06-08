@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Slider from '@mui/material/Slider';
-import Checkbox from '@mui/material/Checkbox';
+// import Slider from '@mui/material/Slider';
+// import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import { Button } from '@mui/material';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
@@ -8,18 +8,18 @@ import bannerImg from '../../assets/images/banner1.jpg';
 import { Link, useParams } from 'react-router-dom';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+// import FormControl from '@mui/material/FormControl';
+// import FormLabel from '@mui/material/FormLabel';
 
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
 import { MyContext } from '../../App';
 
-function valuetext(value) {
-    return `${value}°C`;
-}
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+// function valuetext(value) {
+//     return `${value}°C`;
+// }
+// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const Sidebar = (props) => {
     const [value, setValue] = useState([100, 60000]);
@@ -153,7 +153,6 @@ const Sidebar = (props) => {
                         <span className='ml-auto'>From: <strong className='text-success'>Rs: {value[1]}</strong></span>
                     </div>
 
-                 
                     <div className='filters pt-5'>
                         <h5>Filter By Brand</h5>
 

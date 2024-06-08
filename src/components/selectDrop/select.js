@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../selectDrop/select.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
-import { FamilyRestroomTwoTone } from '@mui/icons-material';
+// import { FamilyRestroomTwoTone } from '@mui/icons-material';
 
 
 const Select = ({data,placeholder, icon}) => {
@@ -54,14 +54,13 @@ const Select = ({data,placeholder, icon}) => {
                         {
                             
                             listData.map((item,index)=>{
-                              
+                            
                                 return(
                                     <li key={index+1} onClick={() => closeSelect(index+1, item)} className={`${selectedIndex === index+1 ? 'active' : ''}`}>{item}</li> 
                                 )
                             })
                         }
 
-                          
                         </ul>
                     </div>
                 }

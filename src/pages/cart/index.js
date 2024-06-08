@@ -5,14 +5,14 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import Rating from "@mui/material/Rating";
 import {
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
+  // Card,
+  // CardActions,
+  // CardContent,
+  // Typography,
 } from "@mui/material";
 import QuantityBox from "../../components/quantityBox";
 import { MyContext } from "../../App";
-import { getDatabase, ref, onValue, remove } from "firebase/database";
+// import { getDatabase, ref, onValue, remove } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import MapComponent from "../../components/map/ITEMmap";
@@ -22,9 +22,9 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  onSnapshot,
+  // onSnapshot,
 } from "firebase/firestore";
-import { Description } from "@mui/icons-material";
+// import { Description } from "@mui/icons-material";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
