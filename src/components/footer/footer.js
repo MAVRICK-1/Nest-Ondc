@@ -139,7 +139,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <WatchLaterOutlinedIcon /> <strong>Hours:</strong> 10:00 -
-                  18:00, Mon - Sat
+                  18:00  Mon - Sat
                 </p>
               </div>
 
@@ -158,7 +158,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
