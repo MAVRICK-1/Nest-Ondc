@@ -124,7 +124,7 @@ const Footer = () => {
                 </Link>
                 <br />
                 <br />
-                <p>Awesome grocery store website template</p>
+                <br />
                 <br />
 
                 <p>
