@@ -61,6 +61,7 @@ function Terms() {
           <li>The Seller grants the Company a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, and display the content provided by the Seller for the purpose of operating the Platform and promoting the Seller’s products.</li>
         </ul>
         <br></br>
+        {/*-----------------------Optional Content for future use----------------------------*/}
         {/* <h2>Termination</h2>
         <ul>
           <li>The Company reserves the right to terminate or suspend the Seller’s account at any time, without notice, for any reason, including but not limited to violation of these Terms and Conditions or applicable laws and regulations.</li>
