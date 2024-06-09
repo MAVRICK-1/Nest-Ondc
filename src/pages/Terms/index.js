@@ -8,12 +8,12 @@ function Terms() {
       <div className="terms-content">
       <h2>Terms of Use </h2>
         <p>This document includes the terms and conditions that you must accept before you access the Nest platform (defined hereinafter). By registering or signing with Nest, or by simply accessing and browsing the Nest platform, you signify your absolute and unconditional consent to all the provisions of this agreement in their entirety.</p>
-        <p>This agreement constitutes a legally binding agreement between Licensee and Nest Innovations Private Limited (NIPL). You are advised to read this Agreement carefully. If you are not agreeable to any terms and conditions, you should not use this Service and notify the same to Nest Innovations.</p>
-        <p>Notwithstanding anything contained in the foregoing, this Agreement will not bind Nest Innovations unless you meet the eligibility criteria for entering into this Agreement as set forth in Section 2 of this Agreement.</p>
-        <p>The terms “we”, “us”, "NIPL", "Company", "Nest" or “our” shall refer to Nest Innovations. The terms “you”, “your”, “seller”, “licensee” shall refer to any individual or entity who accepts this Agreement. Nothing in this Agreement shall be deemed to confer any third-party rights or benefits.</p>
+        <p>This agreement constitutes a legally binding agreement between Licensee and Nest. You are advised to read this Agreement carefully. If you are not agreeable to any terms and conditions, you should not use this Service and notify the same to Nest.</p>
+        {/* <p>Notwithstanding anything contained in the foregoing, this Agreement will not bind Nest unless you meet the eligibility criteria for entering into this Agreement as set forth in Section 2 of this Agreement.</p> */}
+        <p>The terms “we”, “us”, "Company", "Nest" or “our” shall refer to Nest. The terms “you”, “your”, “seller”, “licensee” shall refer to any individual or entity who accepts this Agreement. Nothing in this Agreement shall be deemed to confer any third-party rights or benefits.</p>
         <br></br>
         <h2>Nest Platform</h2>
-        <p>The domain name nest.in, including the related subdomains, mobile site, and mobile applications as well as the Seller Dashboard (hereinafter referred to as "Platform" or "Nest") is owned and operated by Nest Innovations (hereinafter referred to as “Nest Innovations”), a company incorporated under the Companies Act, 1956, with its registered office at Nest Innovations Private Limited, 9th Floor, Spaze iTech Park, Sector-49, Gurugram-122018, Haryana, India.</p>
+        <p>The domain nest-ondc-arzx.vercel.app, including the related subdomains, mobile site, and mobile applications (hereinafter referred to as "Platform" or "Nest") is owned and operated by Nest (hereinafter referred to as “Nest”).</p>
         <br></br>
         <h2>Buyer and Seller Transaction and Communication</h2>
         <p>The Platform facilitates transactions between Buyers and Sellers. Nest is not and cannot be a party to or control any transaction between the Platform's Users. Henceforth:</p>
@@ -28,7 +28,7 @@ function Terms() {
         </ul>
         <br></br>
         <h2>Eligibility</h2>
-        <p>The use of the Nest platform, software, and services are available only to, and may only be used by individuals and companies who can form legally binding contracts under applicable law. Without limiting the foregoing, the Software and Services are not available to children (persons under the age of 18). If You are registering as a business entity, You represent that You have the eligibility to enter into an agreement and the authority to bind the entity to this Agreement. Nest Innovations uses many techniques to verify the accuracy of the information you provide when you register on the Nest™ Site. If for any reason, Nest Innovations believes such information to be incorrect, it reserves the right to revoke any and all licenses under this Agreement or to refuse to provide the Software license and Services under this Agreement to You.</p>
+        <p>The use of the Nest platform, software, and services are available only to, and may only be used by individuals and companies who can form legally binding contracts under applicable law. Without limiting the foregoing, the Software and Services are not available to children (persons under the age of 18). If You are registering as a business entity, You represent that You have the eligibility to enter into an agreement and the authority to bind the entity to this Agreement. Nest uses many techniques to verify the accuracy of the information you provide when you register on the Nest™ Site. If for any reason, Nest believes such information to be incorrect, it reserves the right to revoke any and all licenses under this Agreement or to refuse to provide the Software license and Services under this Agreement to You.</p>
         <br></br>
         <h2>Eligibility and Account Creation</h2>
         <ul>
@@ -61,7 +61,7 @@ function Terms() {
           <li>The Seller grants the Company a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, and display the content provided by the Seller for the purpose of operating the Platform and promoting the Seller’s products.</li>
         </ul>
         <br></br>
-        <h2>Termination</h2>
+        {/* <h2>Termination</h2>
         <ul>
           <li>The Company reserves the right to terminate or suspend the Seller’s account at any time, without notice, for any reason, including but not limited to violation of these Terms and Conditions or applicable laws and regulations.</li>
           <li>Upon termination, the Seller shall immediately cease all use of the Platform and remove all product listings from the Platform.</li>
@@ -78,7 +78,7 @@ function Terms() {
         <ul>
           <li>These Terms and Conditions shall be governed by and construed in accordance with the laws of India.</li>
           <li>Any disputes arising out of or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of Gurugram, Haryana.</li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

@@ -4,14 +4,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  /* font-family: 'Arial', sans-serif; Make sure this matches the About Us page font */
+  /* font-family: 'Arial', sans-serif; */
 }
 
 .terms-heading {
   text-transform: capitalize;
   font-size: 40px;
   color: #008080;
-  font-weight: 500;
+  font-weight: 500 ;
   margin-bottom: 30px;
   padding-top: 3vw;
 }
@@ -26,11 +26,25 @@
   border-radius: 5px;
 }
 
+
+.terms-content p, 
+.terms-content ul,
+.terms-content li,
+.terms-content h2{
+  color: #414141 !important;
+}
 .terms-content ul {
   padding-left: 20px;
   list-style: disc;
+  color: inherit;
 }
 
 .terms-content li {
   margin-bottom: 10px;
+  color: inherit;
+}
+
+.terms-content h2 {
+  font-size: 24px;
+  font-weight: bold !important;
 }
