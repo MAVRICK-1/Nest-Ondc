@@ -218,6 +218,10 @@ const Nav = (props) => {
                                         <Button onClick={props.closeNav}><Link to={'/AboutUs'}>About</Link></Button>
                                     </li>
 
+                                    <li className='list-inline-item'>
+                                        <Button onClick={props.closeNav}><Link to={'/Terms'}>TnC</Link></Button>
+                                    </li>
+
 
                                     <li className='list-inline-item position-static'>
                                         <Button onClick={()=>setOpenMegaMenu(!openMegaMenu)}><Link>Shop <KeyboardArrowDownIcon   className={`${openMegaMenu===true &&  'rotateIcon'}`}/></Link></Button>

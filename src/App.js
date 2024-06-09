@@ -21,6 +21,7 @@ import SignUp from "./pages/SignUp";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
 import ForgotPassword from "./pages/ForgotPassword";
+import Terms from "./pages/Terms";
 import "./responsive.css";
 
 // import data from './data';
@@ -268,6 +269,7 @@ function App() {
           />
           <Route exact={true} path="/cart" element={<Cart />} />
           <Route exact={true} path="/wishlist" element={<Wishlist />} />
+          <Route exact={true} path="/terms" element={<Terms />} />
 
           {/* sign in , signup Protection */}
           {isLogin === null && (
@@ -301,4 +303,3 @@ function App() {
 export default App;
 
 export { MyContext };
-
