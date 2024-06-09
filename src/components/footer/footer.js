@@ -185,7 +185,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to="/Terms">Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
@@ -212,7 +212,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
@@ -239,7 +239,7 @@ const Footer = () => {
                         <Link to="#">Privacy Policy</Link>
                       </li>
                       <li>
-                        <Link to="#">Terms &amp; Conditions</Link>
+                        <Link to={'/Terms'}>Terms &amp; Conditions</Link>
                       </li>
                       <li>
                         <Link to="#">Contact Us</Link>
