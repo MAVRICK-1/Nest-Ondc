@@ -138,8 +138,10 @@
   }
   
   .part2 ul li button:hover{
-    background-color: inherit !important;
+    /* background-color: inherit !important; */
+    background-color: #3bb77e;
     box-shadow: none !important;
+
   }
   
   .part2 ul li button:hover a{
