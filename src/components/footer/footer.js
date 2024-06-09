@@ -35,7 +35,7 @@ const Footer = () => {
                 Stay home & get your daily <br />
                 needs from our shop
               </h2>
-              <p>Start You'r Daily Shopping with Nest Mart</p>
+              <p>Start Your Daily Shopping with Nest Mart</p>
               <br />
               <br className="res-hide" />
               <Newsletter />
