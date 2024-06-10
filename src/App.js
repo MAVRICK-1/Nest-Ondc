@@ -20,6 +20,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
+import MyAccount from "./pages/MyAccount";
 import ForgotPassword from "./pages/ForgotPassword";
 import "./responsive.css";
 
@@ -39,7 +40,7 @@ function App() {
 
   const [isLoading, setIsloading] = useState(true);
 
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -286,6 +287,8 @@ function App() {
             element={<MapComponent data={data} />}
           />
           <Route exact={true} path="/addProduct" element={<AddProductForm />} />
+          {isLogin && <Route exact path="/myaccount" element={<MyAccount />} />}
+          {/* <Route exact path="*" element={<NotFound />} /> */}
           <Route exact={true} path="*" element={<NotFound />} />
         </Routes>
         <Footer />
