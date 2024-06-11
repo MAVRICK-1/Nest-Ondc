@@ -250,6 +250,7 @@ function App() {
             element={<Home data={data.productData} />}
           />
           <Route exact={true} path="/AboutUs" element={<About />} />
+          <Route exact={true} path="/ContactUs" element={<Contact />} />
           <Route
             exact={true}
             path="/cat/:id"
