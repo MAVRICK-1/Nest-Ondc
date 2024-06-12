@@ -18,6 +18,7 @@ import Listing from "./pages/Listing";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
 import ForgotPassword from "./pages/ForgotPassword";
