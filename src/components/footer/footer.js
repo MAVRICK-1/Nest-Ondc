@@ -1,6 +1,5 @@
 import React from "react";
 import "./footer.css";
-
 import Icon1 from "../../assets/images/icon-1.svg";
 import Icon2 from "../../assets/images/icon-2.svg";
 import Icon3 from "../../assets/images/icon-3.svg";
@@ -22,6 +21,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import Newsletter from "../../components/newsletter/index";
 import NewsletterImg from "../../assets/images/newsletter.png";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -322,6 +322,9 @@ const Footer = () => {
                       </Link>
                     </li>
                   </ul>
+                  <button id="btnscrolltotop" style={{backgroundColor:"green",borderRadius:55,marginLeft:355,paddingLeft:10,paddingRight:10,paddingtop:10,paddingBottom:10,position:"absolute"}} >
+                    <a href="#"><ArrowUpwardIcon/></a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -331,5 +334,6 @@ const Footer = () => {
     </>
   );
 };
+
 
 export default Footer;

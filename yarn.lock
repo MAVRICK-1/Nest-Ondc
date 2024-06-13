@@ -6282,6 +6282,11 @@ expect@^29.0.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
+express-ejs-layouts@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.npmjs.org/express-ejs-layouts/-/express-ejs-layouts-2.5.1.tgz"
+  integrity sha512-IXROv9n3xKga7FowT06n1Qn927JR8ZWDn5Dc9CJQoiiaaDqbhW5PDmWShzbpAa2wjWT1vJqaIM1S6vJwwX11gA==
+
 express@^4.17.3:
   version "4.18.2"
   resolved "https://registry.npmjs.org/express/-/express-4.18.2.tgz"
