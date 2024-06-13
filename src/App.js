@@ -18,6 +18,7 @@ import Listing from "./pages/Listing";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -251,6 +252,7 @@ function App() {
             element={<Home data={data.productData} />}
           />
           <Route exact={true} path="/AboutUs" element={<About />} />
+          <Route exact={true} path="/ContactUs" element={<Contact />} />
           <Route
             exact={true}
             path="/cat/:id"
