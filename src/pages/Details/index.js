@@ -186,7 +186,7 @@ const DetailsPage = (props) => {
     fetchWishlistProducts();
 
     setIsLoading(false);
-  }, []);
+  },[currentProduct]);
 
   useEffect(() => {
     // //console.log(currentProduct); // Log currentProduct after it has been updated
@@ -944,7 +944,9 @@ const DetailsPage = (props) => {
                 relatedProducts.map((product, index) => {
                   return (
                     <div className="item" key={index}>
-                      <Product tag={product.type} item={product} />
+                      <Button onClick={()=>{setCurrentProduct(product)}}>
+                        <Product tag={product.type} item={product} />
+                      </Button>
                     </div>
                   );
                 })}
