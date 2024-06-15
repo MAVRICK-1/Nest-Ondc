@@ -1,0 +1,132 @@
+.cartSection {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .cartSection .clearCart {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .cartSection .clearCart svg {
+    font-size: 25px !important;
+  }
+
+  .compareWrapper{
+    min-width: 50rem;
+    max-width: 80rem;
+  }
+  .compareWrapper tr:first-child{
+    height: 15rem;
+  }
+
+  .compareWrapper tr:last-child{
+    height:5rem;
+  }
+
+  .compareWrapper tr{
+    height: 15rem;
+    text-align: center;
+    padding: 5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .comprice{
+    color: #3bb77e;
+    font-size: 30px;
+    margin-top: 30%;
+  }
+
+  .comdistance{
+    color: brown;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .compareWrapper td{
+    border: 1px solid black;
+  }
+
+  .compareWrapper .comprice{
+    font-weight: bold;
+  }
+
+  .compareWrapper tbody{
+    border:1px solid rgba(0, 0, 0, 0.1);
+  }
+
+
+  .add{
+    background: #f1f1f1;
+    overflow: hidden;
+    border: 1px solid black;
+  }
+  .compareWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* .compareWrapper table thead {
+    background: #f1f1f1;
+    overflow: hidden;
+  }
+  .compareWrapper table thead th:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .compareWrapper table thead th:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .compareWrapper table tbody tr {
+    vertical-align: middle;
+  }
+  .compareWrapper table tbody tr .img {
+    width: 30%;
+    height: 150px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .compareWrapper table tbody tr .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .compareWrapper table tbody tr .info {
+    width: 70%;
+  }
+  .compareWrapper table tbody tr .info a {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .compareWrapper table tbody tr .info a:hover {
+    text-decoration: none;
+  }
+  
+  .compareWrapper table tbody tr span {
+    font-weight: 600;
+    font-size: 28px;
+  }
+  .compareWrapper table tbody tr span.text-g {
+    font-weight: bold;
+  }
+   */
+  .cartRightBox {
+    padding-left: 100px;
+    padding-bottom: 30px;
+    height: auto;
+  }
+  .cartRightBox .card {
+    position: sticky;
+    top: 150px;
+    height: auto;
+    margin: auto;
+    max-width: 430px;
+  }
+
+  
+  
