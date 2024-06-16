@@ -280,7 +280,7 @@ const Nav = (props) => {
 
                                     </li> */}
                                     <li className='list-inline-item'>
-                                        <Button><Link>Contact</Link></Button>
+                                        <Button onClick={props.closeNav}><Link to={'/ContactUs'}>Contact</Link></Button>
                                     </li>
                                 </ul>
 

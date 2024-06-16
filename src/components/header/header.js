@@ -332,7 +332,11 @@ const Header = (props) => {
                               </li>
                               <li>
                                 <Button>
-                                  <FavoriteBorderOutlinedIcon /> My Wishlist
+                                  <FavoriteBorderOutlinedIcon />
+                                    <Link to={"/wishlist"} 
+                                      style={{ textDecoration: "none",
+                                      color: "rgba(0, 0, 0, 0.7)"}}> 
+                                      My Wishlist </Link>
                                 </Button>
                               </li>
                               <li>
@@ -411,7 +415,7 @@ const Header = (props) => {
             </li>
             <li>
               <Button>
-                <Link to="">
+                <Link to={"/wishlist"} style={{ textDecoration: "none"}}>
                   <FavoriteBorderOutlinedIcon /> My Wishlist
                 </Link>
               </Button>
