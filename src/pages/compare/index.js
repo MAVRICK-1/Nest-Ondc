@@ -265,7 +265,7 @@ const WishList = () => {
 																			</div>
 																		</tr>
 																		<tr style={{height:'10 rem'}}>
-																			<span>
+																			<span className="comdescp">
 																				{item.description}
 																			</span>
 																		</tr>

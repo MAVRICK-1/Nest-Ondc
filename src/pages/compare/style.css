@@ -10,16 +10,25 @@
     font-size: 18px;
   }
 
+
   .cartSection .clearCart svg {
     font-size: 25px !important;
   }
 
   .compareWrapper{
-    min-width: 50rem;
-    max-width: 80rem;
+    
+
+    padding-top: 5rem;
   }
   .compareWrapper tr:first-child{
     height: 15rem;
+  }
+
+  .compare-table-responsive{
+    overflow-x: scroll;
+    min-width: 50rem;
+    max-width: 80rem;
+    max-height: 80px;
   }
 
   .compareWrapper tr:last-child{
@@ -35,18 +44,23 @@
 
   .comprice{
     color: #3bb77e;
-    font-size: 30px;
+    font-size: 2vw;
     margin-top: 30%;
+  }
+
+  .comdescp{
+    font-size: 1.7vw;
   }
 
   .comdistance{
     color: brown;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bold;
   }
 
   .compareWrapper td{
     border: 1px solid black;
+    border-top-left-radius: 100px;
   }
 
   .compareWrapper .comprice{
@@ -60,8 +74,8 @@
 
   .add{
     background: #f1f1f1;
-    overflow: hidden;
     border: 1px solid black;
+    font-size: 1.5vw;
   }
   .compareWrapper img {
     width: 100%;
@@ -130,3 +144,17 @@
 
   
   
+  @media only screen and (min-width: 320px) and (max-width: 992px) {
+    .comdescp {
+        font-size: 3.5vw;
+    }
+    .add{
+      font-size: 3.5vw;
+    }
+    .comprice{
+      font-size: 5.5vw;
+    }
+    .comdistance{
+      font-size: 5.5vw;
+    }
+}
