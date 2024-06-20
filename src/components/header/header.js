@@ -248,13 +248,13 @@ const Header = (props) => {
                       <li className="list-inline-item">
                         <span>
                           <Link
-                            to={"/wishlist"}
+                            to={"/compare"}
                             style={{ textDecoration: "none" }}
                           >
                             {" "}
                             <img src={IconCompare} />
                             <span className="badge bg-success rounded-circle">
-                              0
+                            {wishlistCount}
                             </span>
                             Compare
                           </Link>
