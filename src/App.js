@@ -21,6 +21,7 @@ import SignUp from "./pages/SignUp";
 import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
+import ComparePage from "./pages/compare";
 import ForgotPassword from "./pages/ForgotPassword";
 import Terms from "./pages/Terms";
 import "./responsive.css";
@@ -271,6 +272,7 @@ function App() {
           />
           <Route exact={true} path="/cart" element={<Cart />} />
           <Route exact={true} path="/wishlist" element={<Wishlist />} />
+          <Route exact={true} path="/compare" element={<ComparePage />} />
           <Route exact={true} path="/terms" element={<Terms />} />
 
           {/* sign in , signup Protection */}
