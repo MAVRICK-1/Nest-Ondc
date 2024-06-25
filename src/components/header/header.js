@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import "../header/header.css";
 import Logo from "../../assets/images/logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,46 +8,31 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import IconCompare from "../../assets/images/icon-compare.svg";
 import IconHeart from "../../assets/images/icon-heart.svg";
 import IconCart from "../../assets/images/icon-cart.svg";
-// import IconUser from "../../assets/images/icon-user.svg";
-
 import Button from "@mui/material/Button";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-
 import { ClickAwayListener } from "@mui/base/ClickAwayListener";
-
 import Nav from "./nav/nav";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-
-import { MyContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-// import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-// import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-// import { Satellite } from "@mui/icons-material";
-// import { getDatabase, ref, onValue } from "firebase/database";
+import { MyContext } from "../../App";
 
 const Header = (props) => {
   const [isOpenDropDown, setisOpenDropDown] = useState(false);
   const [isOpenAccDropDown, setisOpenAccDropDown] = useState(false);
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isopenSearch, setOpenSearch] = useState(false);
   const [isOpenNav, setIsOpenNav] = useState(false);
-  const { cartCount, setCartCount } = useContext(MyContext);
-  const { wishlistCount, setWishlistCount } = useContext(MyContext);
-
+  const { cartCount, wishlistCount } = useContext(MyContext);
   const headerRef = useRef();
   const searchInput = useRef();
   const [profile, setProfile] = useState("");
-
   const context = useContext(MyContext);
   const history = useNavigate();
-
   const [categories, setcategories] = useState([
     "Clothing & beauty",
     "Fresh Seafood",
@@ -62,8 +47,26 @@ const Header = (props) => {
     "Clothing & beauty",
     "Fresh Seafood",
   ]);
-
   const countryList = [];
+  const [placeholderText, setPlaceholderText] = useState("Search for items...");
+  
+  useEffect(() => {
+    const suggestions = [
+      "Search for groceries...",
+      "Search for electronics...",
+      "Search for clothing...",
+      "Search for food...",
+      "Search for accessories...",
+    ];
+
+    const updatePlaceholder = () => {
+      const randomIndex = Math.floor(Math.random() * suggestions.length);
+      setPlaceholderText(suggestions[randomIndex]);
+    };
+
+    const interval = setInterval(updatePlaceholder, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
@@ -72,34 +75,19 @@ const Header = (props) => {
   useEffect(() => {
     setProfile(localStorage.getItem("userImage"));
   }, [context.isLogin]);
+
   const getCountry = async (url) => {
     try {
-      await axios.get(url).then((res) => {
-        if (res !== null) {
-          ////console.log(res.data.data);
-          res.data.data.map((item, index) => {
-            countryList.push(item.country);
-            ////console.log(item.country)
-          });
-
-          ////console.log(res.data.data[0].country)
-        }
-      });
+      const res = await axios.get(url);
+      if (res !== null) {
+        res.data.data.forEach((item) => {
+          countryList.push(item.country);
+        });
+      }
     } catch (error) {
-      //console.log(error.message);
+      console.log(error.message);
     }
   };
-
-  // useEffect(() => {
-  //     window.addEventListener("scroll", () => {
-  //         let position = window.pageYOffset;
-  //         if (position > 100) {
-  //             headerRef.current.classList.add('fixed');
-  //         } else {
-  //             headerRef.current.classList.remove('fixed');
-  //         }
-  //     })
-  // }, [])
 
   const signOut = () => {
     context.signOut();
@@ -137,7 +125,7 @@ const Header = (props) => {
             <div className="row">
               <div className="col-sm-2 part1 d-flex align-items-center">
                 <Link to="/">
-                  <img src={Logo} className="logo" />
+                  <img src={Logo} className="logo" alt="Logo" />
                 </Link>
                 {windowWidth < 992 && (
                   <div className="ml-auto d-flex align-items-center">
@@ -148,8 +136,7 @@ const Header = (props) => {
                       <li className="list-inline-item">
                         <span>
                           <Link to={"/cart"}>
-                            {" "}
-                            <img src={IconCart} />
+                            <img src={IconCart} alt="Cart Icon" />
                             <span className="badge bg-success rounded-circle">
                               {cartCount}
                             </span>
@@ -164,10 +151,10 @@ const Header = (props) => {
                       <div
                         onClick={() => setisOpenAccDropDown(!isOpenAccDropDown)}
                       >
-                        {profile != "" ? (
+                        {profile ? (
                           <img
                             src={profile}
-                            alt=""
+                            alt="Profile"
                             style={{
                               width: "65%",
                               height: "65%",
@@ -178,7 +165,7 @@ const Header = (props) => {
                         ) : (
                           <img
                             src="https://cdn-icons-png.flaticon.com/512/5323/5323352.png"
-                            alt=""
+                            alt="Default Profile"
                             style={{
                               width: "50px",
                               height: "50px",
@@ -200,13 +187,6 @@ const Header = (props) => {
                     isopenSearch === true ? "open" : ""
                   }`}
                 >
-                  {/* {
-                                            windowWidth < 992 &&
-                                            <div className='countryWrapper mb-4 w-100'>
-                                                <Select data={countryList} placeholder={'Your Location'} icon={<LocationOnOutlinedIcon style={{ opacity: '0.5' }} />} />
-                                            </div>
-                                        } */}
-
                   {windowWidth < 992 && (
                     <div className="closeSearch" onClick={closeSearch}>
                       <ArrowBackIosIcon />
@@ -217,18 +197,17 @@ const Header = (props) => {
                     placeholder={"All Categories"}
                     icon={false}
                   />
-
                   <div className="search">
                     <input
                       type="text"
-                      placeholder="Search for items..."
+                      placeholder={placeholderText}
                       ref={searchInput}
                     />
                     <SearchIcon className="searchIcon cursor" />
                   </div>
                 </div>
               </div>
-              {/*headerSearch start here */}
+              {/*headerSearch end here */}
 
               <div className="col-sm-5 d-flex align-items-center part3 res-hide">
                 <div className="ml-auto d-flex align-items-center">
@@ -251,10 +230,9 @@ const Header = (props) => {
                             to={"/compare"}
                             style={{ textDecoration: "none" }}
                           >
-                            {" "}
-                            <img src={IconCompare} />
+                            <img src={IconCompare} alt="Compare Icon" />
                             <span className="badge bg-success rounded-circle">
-                            {wishlistCount}
+                              {wishlistCount}
                             </span>
                             Compare
                           </Link>
@@ -266,8 +244,7 @@ const Header = (props) => {
                             to={"/wishlist"}
                             style={{ textDecoration: "none" }}
                           >
-                            {" "}
-                            <img src={IconHeart} />
+                            <img src={IconHeart} alt="Wishlist Icon" />
                             <span className="badge bg-success rounded-circle">
                               {wishlistCount}
                             </span>
@@ -278,8 +255,7 @@ const Header = (props) => {
                       <li className="list-inline-item">
                         <span>
                           <Link to={"/cart"} style={{ textDecoration: "none" }}>
-                            {" "}
-                            <img src={IconCart} />
+                            <img src={IconCart} alt="Cart Icon" />
                             <span className="badge bg-success rounded-circle">
                               {cartCount}
                             </span>
@@ -287,16 +263,15 @@ const Header = (props) => {
                           </Link>
                         </span>
                       </li>
-
                       {context.isLogin === "true" ? (
                         <li className="list-inline-item">
                           <span
                             onClick={() => setisOpenDropDown(!isOpenDropDown)}
                           >
-                            {profile != "" ? (
+                            {profile ? (
                               <img
                                 src={profile}
-                                alt=""
+                                alt="Profile"
                                 style={{
                                   width: "65%",
                                   height: "65%",
@@ -307,7 +282,7 @@ const Header = (props) => {
                             ) : (
                               <img
                                 src="https://cdn-icons-png.flaticon.com/512/5323/5323352.png"
-                                alt=""
+                                alt="Default Profile"
                                 style={{
                                   width: "50px",
                                   height: "50px",
@@ -318,7 +293,7 @@ const Header = (props) => {
                             )}
                           </span>
 
-                          {isOpenDropDown !== false && (
+                          {isOpenDropDown && (
                             <ul className="dropdownMenu">
                               <li>
                                 <Button className="align-items-center">
@@ -333,10 +308,15 @@ const Header = (props) => {
                               <li>
                                 <Button>
                                   <FavoriteBorderOutlinedIcon />
-                                    <Link to={"/wishlist"} 
-                                      style={{ textDecoration: "none",
-                                      color: "rgba(0, 0, 0, 0.7)"}}> 
-                                      My Wishlist </Link>
+                                  <Link
+                                    to={"/wishlist"}
+                                    style={{
+                                      textDecoration: "none",
+                                      color: "rgba(0, 0, 0, 0.7)",
+                                    }}
+                                  >
+                                    My Wishlist
+                                  </Link>
                                 </Button>
                               </li>
                               <li>
@@ -377,7 +357,7 @@ const Header = (props) => {
 
       <div className="afterHeader"></div>
 
-      {isOpenAccDropDown !== false && (
+      {isOpenAccDropDown && (
         <>
           <div className="navbarOverlay" onClick={closeNav}></div>
           <ul className="dropdownMenu dropdownMenuAcc" onClick={closeNav}>
@@ -391,8 +371,7 @@ const Header = (props) => {
             <li>
               <Button className="align-items-center">
                 <Link to="">
-                  {" "}
-                  <img src={IconCompare} />
+                  <img src={IconCompare} alt="Compare Icon" />
                   Compare
                 </Link>
               </Button>
@@ -400,8 +379,7 @@ const Header = (props) => {
             <li>
               <Button className="align-items-center">
                 <Link to="">
-                  {" "}
-                  <img src={IconCart} />
+                  <img src={IconCart} alt="Cart Icon" />
                   Cart
                 </Link>
               </Button>
@@ -415,7 +393,7 @@ const Header = (props) => {
             </li>
             <li>
               <Button>
-                <Link to={"/wishlist"} style={{ textDecoration: "none"}}>
+                <Link to={"/wishlist"} style={{ textDecoration: "none" }}>
                   <FavoriteBorderOutlinedIcon /> My Wishlist
                 </Link>
               </Button>
@@ -447,3 +425,5 @@ const Header = (props) => {
 };
 
 export default Header;
+
+
