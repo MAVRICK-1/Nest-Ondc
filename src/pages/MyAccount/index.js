@@ -17,10 +17,26 @@ const MyAccount = () => {
       fetchOrderHistory();
       fetchWishlistItems();
       setProfile(localStorage.getItem('userImage'));
+      let storedEmail = localStorage.getItem('user');
+
+      // Split the email into local and domain parts
+      const atIndex = storedEmail.indexOf('@');
+      if (atIndex !== -1) {
+        const localPart = storedEmail.slice(0, atIndex); // part before @
+        const domainPart = storedEmail.slice(atIndex + 1); // part after @
+
+        // Replace underscores with dots only in the domain part
+        const normalizedDomainPart = domainPart.replace(/_/g, '.');
+
+        // Combine local and normalized domain parts
+        storedEmail = `${localPart}@${normalizedDomainPart}`;
+      }
+
       setUserDetails({
-        // name: localStorage.getItem('user'),
-        email: localStorage.getItem('user'),
+        email: storedEmail,
       });
+    
+
     }
   }, [isLogin]);
 
@@ -69,7 +85,7 @@ const MyAccount = () => {
         <h3>Profile</h3>
         <img src={profile || 'https://cdn-icons-png.flaticon.com/512/5323/5323352.png'} alt="Profile" />
         <div className="profile-details">
-          
+
           <p><strong>Email:</strong> {userDetails.email}</p>
         </div>
       </div>
@@ -103,7 +119,7 @@ const MyAccount = () => {
             ))}
           </ul>
         )}
-      
+
       </div>
     </div>
   );
