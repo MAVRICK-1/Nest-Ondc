@@ -10,7 +10,7 @@ function Tes() {
     async function fetchContributors() {
       try {
         const response = await axios.get(
-          'https://api.github.com/repos/MAVRICK-1/e-commerce_website/contributors'
+          'https://api.github.com/repos/MAVRICK-1/Nest-Ondc/contributors'
         );
         setContributors(response.data);
       } catch (error) {
