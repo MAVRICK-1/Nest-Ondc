@@ -18,10 +18,8 @@ import Listing from "./pages/Listing";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
-import ComparePage from "./pages/compare";
 import ForgotPassword from "./pages/ForgotPassword";
 import Terms from "./pages/Terms";
 import "./responsive.css";
@@ -31,6 +29,7 @@ import { collection, doc, getDocs } from "firebase/firestore";
 import MapComponent from "./components/map/ITEMmap";
 import { db } from "./firebase";
 import SellerForm from "./pages/SellerRegistration";
+import ScrollToTop from "./components/ScrollToTop"; // Import the ScrollToTop component
 
 const MyContext = createContext();
 
@@ -239,6 +238,7 @@ function App() {
   return data && data.productData ? (
     <HashRouter>
       <MyContext.Provider value={value}>
+        <ScrollToTop /> {/* Add ScrollToTop component here */}
         {isLoading === true && (
           <div className="loader">
             <img src={Loader} />
@@ -253,7 +253,6 @@ function App() {
             element={<Home data={data.productData} />}
           />
           <Route exact={true} path="/AboutUs" element={<About />} />
-          <Route exact={true} path="/ContactUs" element={<Contact />} />
           <Route
             exact={true}
             path="/cat/:id"
@@ -272,7 +271,6 @@ function App() {
           />
           <Route exact={true} path="/cart" element={<Cart />} />
           <Route exact={true} path="/wishlist" element={<Wishlist />} />
-          <Route exact={true} path="/compare" element={<ComparePage />} />
           <Route exact={true} path="/terms" element={<Terms />} />
 
           {/* sign in , signup Protection */}
