@@ -8,7 +8,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import IconCompare from "../../assets/images/icon-compare.svg";
 import IconHeart from "../../assets/images/icon-heart.svg";
 import IconCart from "../../assets/images/icon-cart.svg";
-import IconUser from "../../assets/images/icon-user.svg";
+// import IconUser from "../../assets/images/icon-user.svg";
 
 import Button from "@mui/material/Button";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
@@ -25,11 +25,11 @@ import { useContext } from "react";
 import { MyContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+// import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { Satellite } from "@mui/icons-material";
-import { getDatabase, ref, onValue } from "firebase/database";
+// import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+// import { Satellite } from "@mui/icons-material";
+// import { getDatabase, ref, onValue } from "firebase/database";
 
 const Header = (props) => {
   const [isOpenDropDown, setisOpenDropDown] = useState(false);
@@ -253,7 +253,7 @@ const Header = (props) => {
                             {" "}
                             <img src={IconCompare} />
                             <span className="badge bg-success rounded-circle">
-                              3
+                              0
                             </span>
                             Compare
                           </Link>
