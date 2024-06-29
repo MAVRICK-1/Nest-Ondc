@@ -14,6 +14,7 @@ import MapComponent from "../../components/map/ITEMmap";
 import { db } from "../../firebase";
 const WishList = () => {
 	const [wishlistItems, setWishlistItems] = useState([]);
+	const [userLocation, setUserLocation] = useState(null);
 	const [error, setError] = useState(null);
 	const [totalPrice, setTotalPrice] = useState(0);
 	const context = useContext(MyContext);
@@ -35,6 +36,19 @@ const WishList = () => {
 			setError("Failed to fetch data from the server"); // Set error state if there's an error with database connection
 		}
 	}, []);
+
+
+	useEffect(()=>{
+		navigator.geolocation.getCurrentPosition(
+			(position) =>{
+				console.log(position.coords.latitude, position.coords.longitude);
+				setUserLocation([position.coords.latitude, position.coords.longitude]);
+			},
+			(error) => {
+				console.error("Error getting user location:",error);
+			}
+		);
+	},[context.isLogin]);
 
 	useEffect(() => {
 		fetchWishlistProducts();
@@ -58,6 +72,23 @@ const WishList = () => {
 		} catch (error) {
 			console.error("Error fetching wishlist products:", error);
 		}
+	};
+
+	const getDistance = (start, end) => {
+		const toRadians = (degrees) => (degrees * Math.PI) / 180;
+	
+		const earthRadiusKm = 6371; // Radius of the Earth in kilometers
+		const dLat = toRadians(end[0] - start[0]);
+		const dLon = toRadians(end[1] - start[1]);
+	
+		const lat1 = toRadians(start[0]);
+		const lat2 = toRadians(end[0]);
+
+		const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+		const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		const distance = earthRadiusKm * c;
+		return distance;
+
 	};
 
 	const deleteWishlistItem = async (uid, wishlistItemId) => {
@@ -102,6 +133,13 @@ const WishList = () => {
 		setWishlistItems(items);
 	};
 
+	const updateDistance = (productCoords)=>{
+		console.log(productCoords)
+		const distance = Math.round(getDistance(userLocation, productCoords));
+		console.log(distance)
+		return distance;
+	}
+
 	return (
 		<>
 			{wishlistItems.length > 0 ? (
@@ -133,14 +171,14 @@ const WishList = () => {
 									<div className="d-flex align-items-center w-100">
 										<div className="left">
 											<h1 className="hd mb-0">
-												Your Wishlist
+												Your Comparisons
 											</h1>
 											<p>
 												There are{" "}
 												<span className="text-g">
 													{wishlistItems.length}
 												</span>{" "}
-												products in your Wishlist
+												products in your Comparison Table
 											</p>
 										</div>
 
@@ -151,31 +189,32 @@ const WishList = () => {
 											}
 										>
 											<DeleteOutlineOutlinedIcon /> Clear
-											Wishlist
+											Comparison
 										</span>
 									</div>
 									<MapComponent data={wishlistItems} />
-									<div className="cartWrapper mt-4">
+									<div className="compareWrapper mt-4">
 										<div className="table-responsive">
 											<table className="table">
-												<thead>
-													<tr>
-														<th>Product</th>
-														<th>Unit Price</th>
-														<th>Quantity</th>
-														<th>Subtotal</th>
-														<th>Remove</th>
-													</tr>
-												</thead>
+											<tbody>
+												<div class="add">
+													<td>
+														<tr><b>Product</b></tr>
+														<tr height="10 rem"><b>Description</b></tr>
+														<tr><b>Unit Price</b></tr>
+														<tr><b>Distance</b></tr>
+														<tr><b>Remove</b></tr>
+													</td>
+												</div>
 
-												<tbody>
 													{wishlistItems.length !==
 														0 &&
 														wishlistItems.map(
 															(item, index) => {
+																console.log(item)
 																return (
-																	<tr>
-																		<td
+																	<td>
+																		<tr
 																			width={
 																				"50%"
 																			}
@@ -224,10 +263,15 @@ const WishList = () => {
 																					</span>
 																				</div>
 																			</div>
-																		</td>
+																		</tr>
+																		<tr style={{height:'10 rem'}}>
+																			<span className="comdescp">
+																				{item.description}
+																			</span>
+																		</tr>
 
-																		<td width="20%">
-																			<span>
+																		<tr width="20%">
+																			<span className ="comprice">
 																				₹{" "}
 																				{parseInt(
 																					item.price
@@ -239,50 +283,15 @@ const WishList = () => {
 																						)
 																				)}
 																			</span>
-																		</td>
+																		</tr>
 
-																		<td>
-																			<QuantityBox
-																				item={
-																					item
-																				}
-																				inputItems={
-																					wishlistItems
-																				}
-																				index={
-																					index
-																				}
-																				quantity={
-																					item?.quantity
-																				}
-																				updateInfo={
-																					updateWishlist
-																				}
-																				name={
-																					"wishlists"
-																				}
-																			/>
-																		</td>
-
-																		<td>
-																			<span className="text-g">
-																				₹{" "}
-																				{parseInt(
-																					item.price
-																						.split(
-																							","
-																						)
-																						.join(
-																							""
-																						)
-																				) *
-																					parseInt(
-																						item.quantity
-																					)}
+																		<tr>
+																			<span className="comdistance">
+																				{updateDistance(item.coordinates)} km
 																			</span>
-																		</td>
+																		</tr>
 
-																		<td align="center">
+																		<tr align="center">
 																			<span
 																				className="cursor"
 																				onClick={() =>
@@ -294,8 +303,8 @@ const WishList = () => {
 																			>
 																				<DeleteOutlineOutlinedIcon />
 																			</span>
-																		</td>
-																	</tr>
+																		</tr>
+																	</td>
 																);
 															}
 														)}
