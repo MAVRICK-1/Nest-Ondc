@@ -8,6 +8,8 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import IconCompare from "../../assets/images/icon-compare.svg";
 import IconHeart from "../../assets/images/icon-heart.svg";
 import IconCart from "../../assets/images/icon-cart.svg";
+import IconUser from "../../assets/images/icon-user.svg";
+
 import Button from "@mui/material/Button";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -18,7 +20,11 @@ import Nav from "./nav/nav";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { Satellite } from "@mui/icons-material";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { MyContext } from "../../App";
 
 const Header = (props) => {
@@ -183,9 +189,8 @@ const Header = (props) => {
               {/*headerSearch start here */}
               <div className="col-sm-5 part2">
                 <div
-                  className={`headerSearch d-flex align-items-center ${
-                    isopenSearch === true ? "open" : ""
-                  }`}
+                  className={`headerSearch d-flex align-items-center ${isopenSearch === true ? "open" : ""
+                    }`}
                 >
                   {windowWidth < 992 && (
                     <div className="closeSearch" onClick={closeSearch}>
@@ -232,7 +237,7 @@ const Header = (props) => {
                           >
                             <img src={IconCompare} alt="Compare Icon" />
                             <span className="badge bg-success rounded-circle">
-                              {wishlistCount}
+                            {wishlistCount}
                             </span>
                             Compare
                           </Link>
@@ -296,9 +301,11 @@ const Header = (props) => {
                           {isOpenDropDown && (
                             <ul className="dropdownMenu">
                               <li>
-                                <Button className="align-items-center">
-                                  <Person2OutlinedIcon /> My Account
-                                </Button>
+                                <Link to="/myaccount">
+                                  <Button className="menuItem">
+                                    <Person2OutlinedIcon /> My Account
+                                  </Button>
+                                </Link>
                               </li>
                               <li>
                                 <Button>

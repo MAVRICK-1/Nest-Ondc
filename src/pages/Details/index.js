@@ -186,7 +186,7 @@ const DetailsPage = (props) => {
     fetchWishlistProducts();
 
     setIsLoading(false);
-  },[currentProduct]);
+  }, [currentProduct]);
 
   useEffect(() => {
     // //console.log(currentProduct); // Log currentProduct after it has been updated
@@ -352,12 +352,12 @@ const DetailsPage = (props) => {
     if (!oldPrice || !price) {
       return 0;
     }
-  
+
     const oldPriceNumber = parseFloat(oldPrice.replace(/,/g, ''));
     const priceNumber = parseFloat(price.replace(/,/g, ''));
-  
+
     const discount = ((oldPriceNumber - priceNumber) / oldPriceNumber) * 100;
-  
+
     return Math.round(discount);
   }
 
@@ -392,30 +392,30 @@ const DetailsPage = (props) => {
                     to={`/cat/${prodCat?.parentCat
                       ?.split(" ")
                       ?.join("-")
-                      ?.toLowerCase()}`}
-                    onClick={() =>
+                      ?.toLowerCase() || ""}`} // Provide a default value if parentCat is null or undefined
+                    onClick={() => {
+                      const parentCat = prodCat.parentCat || ""; // Provide a default value if parentCat is null or undefined
                       sessionStorage.setItem(
                         "cat",
-                        prodCat.parentCat.split(" ").join("-").toLowerCase()
+                        parentCat.split(" ").join("-").toLowerCase()
                       )
-                    }
+                    }}
                     className="text-capitalize"
                   >
                     {prodCat.parentCat}
-                  </Link>{" "}
+                  </Link>
+                  {" "}
                 </li>
 
                 <li>
                   <Link
-                    to={`/cat/${prodCat.parentCat.toLowerCase()}/${prodCat.subCatName
+                    to={`/cat/${prodCat.parentCat?.toLowerCase() || ""}/${(prodCat.subCatName || "")
                       .replace(/\s/g, "-")
                       .toLowerCase()}`}
-                    onClick={() =>
-                      sessionStorage.setItem(
-                        "cat",
-                        prodCat.subCatName.toLowerCase()
-                      )
-                    }
+                    onClick={() => {
+                      const subCatName = prodCat.subCatName || ""; // Provide a default value if subCatName is null or undefined
+                      sessionStorage.setItem("cat", subCatName.toLowerCase());
+                    }}
                     className="text-capitalize"
                   >
                     {prodCat.subCatName}
@@ -507,9 +507,8 @@ const DetailsPage = (props) => {
                         return (
                           <li className="list-inline-item">
                             <a
-                              className={`tag ${
-                                activeSize === index ? "active" : ""
-                              }`}
+                              className={`tag ${activeSize === index ? "active" : ""
+                                }`}
                               onClick={() => isActive(index)}
                             >
                               {item}g
@@ -530,9 +529,8 @@ const DetailsPage = (props) => {
                         return (
                           <li className="list-inline-item">
                             <a
-                              className={`tag ${
-                                activeSize === index ? "active" : ""
-                              }`}
+                              className={`tag ${activeSize === index ? "active" : ""
+                                }`}
                               onClick={() => isActive(index)}
                             >
                               {RAM} GB
@@ -553,9 +551,8 @@ const DetailsPage = (props) => {
                         return (
                           <li className="list-inline-item">
                             <a
-                              className={`tag ${
-                                activeSize === index ? "active" : ""
-                              }`}
+                              className={`tag ${activeSize === index ? "active" : ""
+                                }`}
                               onClick={() => isActive(index)}
                             >
                               {SIZE}
@@ -571,9 +568,8 @@ const DetailsPage = (props) => {
                 <div className="d-flex align-items-center">
                   {context.windowWidth > 992 && (
                     <Button
-                      className={`btn-g btn-lg addtocartbtn ${
-                        isAlreadyAddedInCart === true && "no-click"
-                      }`}
+                      className={`btn-g btn-lg addtocartbtn ${isAlreadyAddedInCart === true && "no-click"
+                        }`}
                       onClick={() => addToCart(currentProduct)}
                     >
                       <ShoppingCartOutlinedIcon />
@@ -583,11 +579,10 @@ const DetailsPage = (props) => {
                     </Button>
                   )}
                   <Button
-                    className={`btn-lg addtocartbtn ml-3 wishlist  ${
-                      isAlreadyAddedInWishlist === true
-                        ? "btn-borderWishlistAlreadyAdded"
-                        : "btn-border"
-                    }`}
+                    className={`btn-lg addtocartbtn ml-3 wishlist  ${isAlreadyAddedInWishlist === true
+                      ? "btn-borderWishlistAlreadyAdded"
+                      : "btn-border"
+                      }`}
                     onClick={() => toggleWishlistItem(currentProduct)}
                   >
                     <FavoriteBorderOutlinedIcon />{" "}
@@ -944,7 +939,7 @@ const DetailsPage = (props) => {
                 relatedProducts.map((product, index) => {
                   return (
                     <div className="item" key={index}>
-                      <Button onClick={()=>{setCurrentProduct(product)}}>
+                      <Button onClick={() => { setCurrentProduct(product) }}>
                         <Product tag={product.type} item={product} />
                       </Button>
                     </div>

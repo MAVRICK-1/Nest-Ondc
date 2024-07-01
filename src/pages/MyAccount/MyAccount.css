@@ -1,0 +1,181 @@
+
+.my-account {
+  padding: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+  height: max-content;
+  
+  border-radius: 10px;
+  
+}
+
+.my-account h2 {
+  text-align: center;
+  font-size: 4rem;
+  color: #008080;
+  font-weight: 450;
+  font-family: "Lato", sans-serif;
+  text-transform: capitalize;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+
+.profile-section {
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-section h3 {
+  font-size: 2rem;
+  color: #34433a;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 20px;
+  font-weight: 400;
+  
+}
+
+.profile-section img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  margin-bottom: 10px;
+}
+.profile-section p {
+  font-size: 1.2rem;
+  color: #073820;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.profile-section .profile-details {
+  color: #34433A;
+  font-size: 1.2rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.order-history,
+.wishlist {
+  margin-bottom: 40px;
+  
+}
+
+.order-history h3,
+.wishlist h3 {
+  font-size: 1.7rem;
+  color: #34433A;
+  font-family: "Lato", sans-serif;
+  font-weight: 650;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.order-history ul,
+.wishlist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-history li,
+.wishlist li {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle hover effect */
+.order-history li:hover,
+.wishlist li:hover {
+  background-color: #e3f2fd;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Add link styling */
+.order-history li a,
+.wishlist li a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.order-history li a:hover,
+.wishlist li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Style the order date and additional details */
+.order-history li p,
+.wishlist li p {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+/* Add an accent line to the left of each item */
+.order-history li::before,
+.wishlist li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  /* background-color: #007bff; */
+  transition: width 0.3s ease;
+}
+
+.order-history li:hover::before,
+.wishlist li:hover::before {
+  width: 10px;
+}
+
+/* Add some spacing between the title and the lists */
+.order-history,
+.wishlist {
+  margin-top: 30px;
+}
+
+.order-history li a,
+.wishlist li a {
+  text-decoration: none;
+  color: #106c33;
+  font-weight: bold;
+}
+
+.order-history li a:hover,
+.wishlist li a:hover {
+  text-decoration: underline;
+}
+
+.order-history li p,
+.wishlist li p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+.no-data {
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+/* src/pages/MyAccount.css */
+
+.img-fluid {
+  border: 2px solid #007bff;
+}
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+}
