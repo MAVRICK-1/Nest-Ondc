@@ -21,6 +21,7 @@ import SignUp from "./pages/SignUp";
 import Contact from "./pages/Contact";
 import Cart from "./pages/cart";
 import Wishlist from "./pages/wishList";
+import ComparePage from "./pages/compare";
 import MyAccount from "./pages/MyAccount";
 import ForgotPassword from "./pages/ForgotPassword";
 import Terms from "./pages/Terms";

@@ -25,6 +25,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { Satellite } from "@mui/icons-material";
 import { getDatabase, ref, onValue } from "firebase/database";
+import { MyContext } from "../../App";
 
 const Header = (props) => {
   const [isOpenDropDown, setisOpenDropDown] = useState(false);
@@ -236,7 +237,7 @@ const Header = (props) => {
                           >
                             <img src={IconCompare} alt="Compare Icon" />
                             <span className="badge bg-success rounded-circle">
-                              3
+                            {wishlistCount}
                             </span>
                             Compare
                           </Link>

@@ -49,7 +49,7 @@ const SignIn = () => {
 
   function replaceSpecialCharacters(inputString) {
     // Use a regular expression to replace special characters with underscore _
-    const replacedString = inputString.replace(/[#$\[\].]/g, "_");
+    const replacedString = inputString.replace(/[#$\[\]]/g, "_");
 
     return replacedString;
   }
